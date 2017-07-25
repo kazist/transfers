@@ -1,0 +1,87 @@
+Transfers\Transfers\Code\Tables\Transfers:
+  table: transfers_transfers
+  type: entity
+  id:
+    id:
+      type: integer
+      generator: { strategy: AUTO }
+  fields:
+    origin_user_id:
+      name: origin_user_id
+      type: integer
+      length: 11
+      nullable: false
+    target_user_id:
+      name: target_user_id
+      type: integer
+      length: 11
+      nullable: false
+    amount:
+      name: amount
+      type: integer
+      length: 11
+      nullable: false
+    gateway_id:
+      name: gateway_id
+      type: integer
+      length: 11
+      nullable: true
+    currency:
+      name: currency
+      type: string
+      length: 255
+      nullable: true
+    token:
+      name: token
+      type: string
+      length: 255
+      nullable: true
+    description:
+      name: description
+      type: text
+      nullable: false
+    params:
+      name: params
+      type: text
+      nullable: true
+    is_canceled:
+      name: is_canceled
+      type: integer
+      length: 11
+      nullable: true
+    created_by:
+      name: created_by
+      type: integer
+      length: 11
+      nullable: false
+    date_created:
+      name: date_created
+      type: datetime
+      nullable: false
+    modified_by:
+      name: modified_by
+      type: integer
+      length: 11
+      nullable: false
+    date_modified:
+      name: date_modified
+      type: datetime
+      nullable: false
+  indexes:
+    origin_user_id_index:
+      columns: [origin_user_id]
+    target_user_id_index:
+      columns: [target_user_id]
+    gateway_id_index:
+      columns: [gateway_id]
+    created_by_index:
+      columns: [created_by]
+    modified_by_index:
+      columns: [modified_by]
+  lifecycleCallbacks:
+    prePersist:
+      - onPrePersist
+      - onPrePersistCallbacks
+    preUpdate:
+      - onPreUpdate
+      - onPreUpdateCallbacks

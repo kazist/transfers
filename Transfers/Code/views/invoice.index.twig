@@ -1,0 +1,105 @@
+{% import "form.macro.twig" as forms %}
+
+
+{{ set_assets('applications/Transfers/assets/js/transfers.js') }}
+
+{% set transfer_amount = 0 %}
+{% set available_amount = subscriber.money_in - subscriber.money_out %}
+
+<h1> Transfer Fund</h1>
+<hr>
+
+<form id="{{ main_form_id }}" class="form-horizontal" action="{{ generate_url(''~ kazi_url.app_name ~'.'~ kazi_url.com_name ~'.'~ kazi_url.subset_name ~'.save' ) }}" method="post" role="form"  enctype="multipart/form-data">
+
+    <div>
+        <div class="table-responsive">
+            <table class="table table-condensed table-bordered">
+                <thead>
+                    <tr class="bg-light-blue">
+                        <th>Description</th>
+                        <th class="text-right">Amount</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {% if rates|length > 0  %}
+                        {% for rate in rates %}
+                            {% set transfer_amount = transfer_amount + rate.amount %}
+                            {% if rate.highlighted %}
+                                <tr>
+                                    <th>{{ rate.title }}</th>
+                                    <th class="text-right">{{ rate.amount|number_format(2) }}</th>
+                                </tr>
+                            {% else %}
+                                <tr>
+                                    <td>{{ rate.title }}</td>
+                                    <td class="text-right">{{ rate.amount|number_format(2) }}</td>
+                                </tr>
+                            {% endif %}
+                        {% endfor %}
+                    {% endif %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="clearfix"></div>
+
+
+    {% if available_amount > transfer_amount %}
+
+        <div class="text-center bg-gray">
+            Amount to be transfered ({{ transfer_amount|number_format(2) }}),  Available Amount ({{ available_amount|number_format(2) }}).
+        </div>
+
+        {{ forms.input('gateway_id', 'hidden', form.gateway_id)  }}
+        {{ forms.input('amount', 'hidden', form.amount)  }}
+        {{ forms.input('user_id', 'hidden', form.user_id)  }}
+        {{ forms.input('params', 'hidden', rates_json)  }}
+
+        <div class="text-center registration-buttons">
+            <input class="btn btn-success btn-sm" type="submit" name="submit" value="Transfer Fund" />
+            <a class="btn btn-danger btn-sm" href="{{ generate_url(''~ kazi_url.app_name ~'.'~ kazi_url.com_name ~'.'~ kazi_url.subset_name) }}">Cancel</a> 
+        </div>
+
+    {% else %}
+
+        <div class="text-center bg-red">
+            Amount to be transfered ({{ transfer_amount|number_format(2) }}) is more than Available Amount ({{ available_amount|number_format(2) }}).
+        </div>
+    {% endif %}
+
+
+    {% include "form.hidden.twig" %}
+
+    {{ forms.input('_token' ) }} 
+
+</form>
+
+<style>
+
+
+    .inviter_detail_name{
+        font-weight: bold;
+    }
+
+    .location_id-group{
+        display: none;
+    }
+
+    .inviter_detail-group #date_arr{
+        width: 50px;
+        display: inline-block;
+    }
+    .inviter_detail-group #month_arr{
+        width: 100px;
+        display: inline-block;
+    }
+    .inviter_detail-group #year_arr{
+        width: 80px;
+        display: inline-block;
+    }
+</style>
+
+
+

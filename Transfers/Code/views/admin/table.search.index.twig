@@ -1,0 +1,52 @@
+{# empty Twig template #}
+
+{% import "form.macro.twig" as forms %}
+
+{% set search = document.search %}
+
+<form id="{{ main_form_id }}" action="{{ generate_url('admin.transfers.transactions',{'user_id':user_id}) }}" method="post" >
+    <div class="custom-search">
+        <div class="col-sm-2">
+            <b>Type</b><br>
+            {{ forms.input(' search.type', 'select', search.type, null, null, null, null, null, typesinput  ) }}
+        </div>
+        <div class="col-sm-3">
+            <b>From</b><br>
+            {{ forms.input(' search.from', 'text', search.from) }}
+        </div>
+        <div class="col-sm-4">
+            <b>Date Range</b><br>
+            {{ forms.input(' search.date_created.start', 'datetime', search.date_created.start ) }}
+            {{ forms.input(' search.date_created.end', 'datetime', search.date_created.end ) }}
+        </div>
+        <div class="col-sm-3">
+            <b></b><br>
+            <button class="btn btn-success btn-sm" type="submit" name="submit">Search</button>
+            <button class="btn btn-default btn-sm" type="submit" name="clear" value="clear">Clear</button>
+        </div>
+    </div>
+
+    {{ forms.input('_token' ) }} 
+
+</form>
+
+
+<div class="clearfix"></div>
+<br>
+
+<style>
+    .custom-search .col-sm-3, .custom-search .col-sm-9{
+        margin:0;
+        padding:0 2px;
+    }
+
+    .search_date_created_start{
+        width: 45% !important;
+        float: left;
+    }
+
+    .search_date_created_end{
+        width: 45% !important;
+        float: right;
+    }
+</style>

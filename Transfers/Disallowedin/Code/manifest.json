@@ -1,0 +1,13 @@
+{
+    "name": "disallowedin",
+    "title": "Transfers Disallowed in following Countries",
+    "explanation": "Transfers Disallowed in following Countries",
+    "description": "Transfers Disallowed in following Countries",
+    "version": 8,
+    "has_view": "1",
+    "tie_field": "0",
+    "email_on_new": "0",
+    "email_on_edit": "0",
+    "email_on_delete": "0",
+    "date_file_modified": "2016-05-04 15:51:30"
+}

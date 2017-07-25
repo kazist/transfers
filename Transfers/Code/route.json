@@ -1,0 +1,279 @@
+{
+    "frontend": [{
+            "title": "Transfer List",
+            "description": "Management of Transfers.",
+            "controller": "Transfers\\Transfers\\Code\\Controllers\\TransfersController::indexAction",
+            "permissions": "can_view, can_viewown",
+            "unique_name": "transfers.transfers",
+            "route": "transfers/transfers",
+            "arguments": "",
+            "keywords": "transfer, list",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 1,
+            "roles": {
+                "SUPER_ADMIN": ["can_view", "can_viewown"],
+                "ADMIN": ["can_view", "can_viewown"],
+                "MODERATOR": ["can_viewown"],
+                "USER": ["can_viewown"]
+            }
+        }, {
+            "title": "Add Transfer ",
+            "description": "Add Transfer .",
+            "controller": "Transfers\\Transfers\\Code\\Controllers\\TransfersController::addAction",
+            "unique_name": "transfers.transfers.add",
+            "route": "transfers/transfers/add",
+            "permissions": "can_add",
+            "arguments": {},
+            "keywords": "transfer, add",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 1,
+            "roles": {
+                "SUPER_ADMIN": ["can_add"],
+                "ADMIN": ["can_add"],
+                "MODERATOR": ["can_add"],
+                "USER": ["can_add"]
+            }
+        }, {
+            "title": "Edit Transfer {{ item.name }}",
+            "description": "Edit Transfer {{ item.name }}.",
+            "controller": "Transfers\\Transfers\\Code\\Controllers\\TransfersController::editAction",
+            "unique_name": "transfers.transfers.edit",
+            "route": "transfers/transfers/edit/{id}",
+            "permissions": "can_add, can_write, can_writeown",
+            "arguments": {
+                "id": null
+            },
+            "keywords": "transfer, list, {{ item.name }}",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 1,
+            "roles": {
+                "SUPER_ADMIN": ["can_add", "can_write", "can_writeown"],
+                "ADMIN": ["can_add", "can_write", "can_writeown"],
+                "MODERATOR": ["can_add"],
+                "USER": ["can_add"]
+            }
+        }, {
+            "title": "Transfer Detail: {{ item.name }}",
+            "description": "Transfer Detail: {{ item.name }}",
+            "controller": "Transfers\\Transfers\\Code\\Controllers\\TransfersController::detailAction",
+            "unique_name": "transfers.transfers.detail",
+            "route": "transfers/transfers/detail/{id}",
+            "permissions": "can_view, can_viewown",
+            "arguments": {
+                "id": null
+            },
+            "keywords": "transfer, list, {{ item.name }}",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 1,
+            "roles": {
+                "SUPER_ADMIN": ["can_view", "can_viewown"],
+                "ADMIN": ["can_view", "can_viewown"],
+                "MODERATOR": ["can_viewown"],
+                "USER": ["can_viewown"]
+            }
+        }, {
+            "title": "Transfer Delete: {{ item.name }}",
+            "description": "Transfer Delete: {{ item.name }}",
+            "controller": "Transfers\\Transfers\\Code\\Controllers\\TransfersController::deleteAction",
+            "unique_name": "transfers.transfers.delete",
+            "route": "transfers/transfers/delete/{id}",
+            "permissions": "can_delete, can_deleteown",
+            "arguments": {
+                "id": null
+            },
+            "keywords": "transfer, delete, {{ item.name }}",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 1,
+            "roles": {
+                "SUPER_ADMIN": ["can_delete", "can_deleteown"],
+                "ADMIN": ["can_delete", "can_deleteown"],
+                "MODERATOR": ["can_deleteown"],
+                "USER": ["can_deleteown"]
+            }
+        }, {
+            "title": "Transfer Save: {{ item.name }}",
+            "description": "Transfer Save: {{ item.name }}",
+            "controller": "Transfers\\Transfers\\Code\\Controllers\\TransfersController::saveAction",
+            "unique_name": "transfers.transfers.save",
+            "route": "transfers/transfers/save",
+            "permissions": "can_add, can_write, can_writeown",
+            "arguments": {
+                "id": null
+            },
+            "keywords": "transfer, save, {{ item.name }}",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 1,
+            "roles": {
+                "SUPER_ADMIN": ["can_add", "can_write", "can_writeown"],
+                "ADMIN": ["can_add", "can_write", "can_writeown"],
+                "MODERATOR": ["can_add"],
+                "USER": ["can_add"]
+            }
+        }, {
+            "title": "Transfer invoice",
+            "description": "Transfer invoice",
+            "controller": "Transfers\\Transfers\\Code\\Controllers\\TransfersController::invoiceAction",
+            "unique_name": "transfers.transfers.invoice",
+            "route": "transfers/transfers/invoice",
+            "permissions": "can_add, can_write, can_writeown",
+            "arguments": {
+                "id": null
+            },
+            "keywords": "transfer, save, {{ item.name }}",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 1,
+            "roles": {
+                "SUPER_ADMIN": ["can_add", "can_write", "can_writeown"],
+                "ADMIN": ["can_add", "can_write", "can_writeown"],
+                "MODERATOR": ["can_add"],
+                "USER": ["can_add"]
+            }
+        }]
+    ,
+    "backend": [{
+            "title": "General Tasks",
+            "description": "General Tasks.",
+            "controller": "Transfers\\Transfers\\Code\\Controllers\\Admin\\TransfersController::taskAction",
+            "unique_name": "admin.transfers.transfers.task",
+            "route": "admin/transfers/transfers/task",
+            "permissions": "can_add, can_write, can_writeown",
+            "arguments": "",
+            "keywords": "transfers, task",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 1,
+            "roles": {
+                "SUPER_ADMIN": ["can_add", "can_write", "can_writeown"],
+                "ADMIN": ["can_add", "can_write", "can_writeown"]
+            }
+        }, {
+            "title": "Transfer List",
+            "description": "Management of Transfers.",
+            "controller": "Transfers\\Transfers\\Code\\Controllers\\Admin\\TransfersController::indexAction",
+            "permissions": "can_view, can_viewown",
+            "unique_name": "admin.transfers.transfers",
+            "route": "admin/transfers/transfers",
+            "arguments": "",
+            "keywords": "transfer, list",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 1,
+            "roles": {
+                "SUPER_ADMIN": ["can_view", "can_viewown"],
+                "ADMIN": ["can_view", "can_viewown"]
+            }
+        }, {
+            "title": "Add Transfer  ",
+            "description": "Add Transfer .",
+            "controller": "Transfers\\Transfers\\Code\\Controllers\\Admin\\TransfersController::addAction",
+            "unique_name": "admin.transfers.transfers.add",
+            "route": "admin/transfers/transfers/add",
+            "permissions": "can_add",
+            "arguments": {},
+            "keywords": "transfer,add",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 1,
+            "roles": {
+                "SUPER_ADMIN": ["can_add"],
+                "ADMIN": ["can_add"]
+            }
+        }, {
+            "title": "Edit Transfer {{ item.name }}",
+            "description": "Edit Transfer {{ item.name }}.",
+            "controller": "Transfers\\Transfers\\Code\\Controllers\\Admin\\TransfersController::editAction",
+            "unique_name": "admin.transfers.transfers.edit",
+            "route": "admin/transfers/transfers/edit/{id}",
+            "permissions": "can_add, can_write, can_writeown",
+            "arguments": {
+                "id": null
+            },
+            "keywords": "transfer, list, {{ item.name }}",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 1,
+            "roles": {
+                "SUPER_ADMIN": ["can_add", "can_write", "can_writeown"],
+                "ADMIN": ["can_add", "can_write", "can_writeown"]
+            }
+        }, {
+            "title": "Transfer Detail: {{ item.name }}",
+            "description": "Transfer Detail: {{ item.name }}",
+            "controller": "Transfers\\Transfers\\Code\\Controllers\\Admin\\TransfersController::detailAction",
+            "unique_name": "admin.transfers.transfers.detail",
+            "route": "admin/transfers/transfers/detail/{id}",
+            "permissions": "can_view, can_viewown",
+            "arguments": {
+                "id": null
+            },
+            "keywords": "transfer, list, {{ item.name }}",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 1,
+            "roles": {
+                "SUPER_ADMIN": ["can_view", "can_viewown"],
+                "ADMIN": ["can_view", "can_viewown"]
+            }
+        }, {
+            "title": "Transfer Delete: {{ item.name }}",
+            "description": "Transfer Delete: {{ item.name }}",
+            "controller": "Transfers\\Transfers\\Code\\Controllers\\Admin\\TransfersController::deleteAction",
+            "unique_name": "admin.transfers.transfers.delete",
+            "route": "admin/transfers/transfers/delete/{id}",
+            "permissions": "can_delete, can_deleteown",
+            "arguments": {
+                "id": null
+            },
+            "keywords": "transfer, delete, {{ item.name }}",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 1,
+            "roles": {
+                "SUPER_ADMIN": ["can_delete", "can_deleteown"],
+                "ADMIN": ["can_delete", "can_deleteown"]
+            }
+        }, {
+            "title": "Transfer Save: {{ item.name }}",
+            "description": "Transfer Save: {{ item.name }}",
+            "controller": "Transfers\\Transfers\\Code\\Controllers\\Admin\\TransfersController::saveAction",
+            "unique_name": "admin.transfers.transfers.save",
+            "route": "admin/transfers/transfers/save",
+            "permissions": "can_add, can_write, can_writeown",
+            "arguments": {
+                "id": null
+            },
+            "keywords": "transfer, save, {{ item.name }}",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 1,
+            "roles": {
+                "SUPER_ADMIN": ["can_add", "can_write", "can_writeown"],
+                "ADMIN": ["can_add", "can_write", "can_writeown"]
+            }
+        }, {
+            "title": "Transfer Reversal",
+            "description": "Transfer Reversal",
+            "controller": "Transfers\\Transfers\\Code\\Controllers\\Admin\\TransfersController::reversetransferAction",
+            "unique_name": "admin.transfers.transfers.reversetransfer",
+            "route": "admin/transfers/transfers/reversetransfer/{id}",
+            "permissions": "can_add, can_write, can_writeown",
+            "arguments": {
+                "id": null
+            },
+            "keywords": "transfer, save, {{ item.name }}",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 1,
+            "roles": {
+                "SUPER_ADMIN": ["can_add", "can_write", "can_writeown"],
+                "ADMIN": ["can_add", "can_write", "can_writeown"]
+            }
+        }]
+} 	

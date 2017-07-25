@@ -1,0 +1,40 @@
+{# empty Twig template #}
+
+{% import "form.macro.twig" as forms %}
+
+{{ set_assets('applications/Transfers/Transfers/Code/assets/js/setting.js') }}
+
+{% set country = callFunction( "Setup.Countries.Code.Models.CountriesModel", 'getCountriesInput') %}
+{% set allowedin_default = callFunction( "Transfers.Transfers.Code.Models.TransfersModel", 'getAllowedIn') %}
+
+<form id="{{ main_form_id }}" class="form-horizontal" action="{{ generate_url('transfers.transfers.save') }}" method="post" role="form" enctype="multipart/form-data" >
+    <div class="editrow">
+        <div class="form-field-group">
+            <div class="well well-sm">Allowed In Following Countries</div>
+            <div class="text-right">
+                <a class="btn btn-default btn-xs path_select_all">Select All</a>
+                <a class="btn btn-default btn-xs path_toggle">Toggle</a>
+                <a class="btn btn-default btn-xs path_clear">Clear</a>
+            </div>
+            <br>
+            {{ forms.input('country_id', 'checkbox', allowedin_default, null, null, null, null, null, country)  }}
+            <div class="clearfix"></div>
+        </div>
+    </div>
+
+    <input class="form-view" name="view" type="hidden" value="{{ kazi_url.view_name }}">
+    <input class="form-twig" name="twig" type="hidden" value="{{ twig_file }}">
+    <input class="form-return_url" name="return_url" type="hidden" value="{{ kazi_url.return_url }}">
+
+{{ forms.input('_token' ) }}  </form>
+
+<style>
+    .editrow ul{
+        -moz-column-count: 4;
+        -moz-column-gap: 20px;
+        -webkit-column-count: 4;
+        -webkit-column-gap: 20px;
+        column-count: 4;
+        column-gap: 20px;
+    }
+</style>

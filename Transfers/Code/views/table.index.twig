@@ -1,0 +1,43 @@
+{# empty Twig template #}
+
+{% if view_side == 'frontend' %}
+    <h1 class="component-header"> Withdraw </h1>
+{% endif %}
+
+<form id="{{ main_form_id }}" action="{{ generate_url('transfers.transfers') }}" method="post" >
+    <div class="table-responsive">
+        <table class="table table-condensed table-bordered">
+            <thead>
+                <tr>
+                    <th>User</th>
+                    <th>Gateway</th>
+                    <th>Date</th>
+                    <th align="right">Amount</th>
+                </tr>
+            </thead> 
+            <tbody>
+
+                {% if items|length>0 %}
+
+                    {% for item in items %}
+                        <tr >
+                            <td>{{ item.target_user_id_join }}</td>
+                            <td>{{ item.gateway_id_join }}</td>
+                            <td>{{ item.date_created ? item.date_created|date('d M Y H:i:s') }}</td>
+                            <td align="right">{{ item.amount|number_format(2) }}</td>
+                        </tr>
+                    {% endfor %}
+                {% endif %}
+            </tbody>
+        </table>
+    </div>
+
+    <div class="clearfix"></div>
+
+    {% include "items.pagination.twig"%}
+
+    {% include "form.hidden.twig" %}
+
+    {{ forms.input('_token' ) }}  
+
+</form>

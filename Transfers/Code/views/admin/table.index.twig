@@ -1,0 +1,82 @@
+{# empty Twig template #}
+
+{% if view_side == 'frontend' %}
+    <h1 class="component-header"> Transfer </h1>
+{% endif %}
+
+<form id="{{ main_form_id }}" action="{{ generate_url('transfers.transfers') }}" method="post" >
+    <div class="table-responsive">
+        <table class="table table-condensed table-bordered">
+            <thead>
+                <tr>
+                    <th>&nbsp;</th>
+                    <th>From</th>
+                    <th>To</th>
+                    <th>Gateway</th>
+                    <th class="text-center">Paid Status</th>
+                    <th class="text-center">Canceled</th>
+                    <th>Date</th>
+                    <th class="text-right">Amount</th>
+                </tr>
+            </thead> 
+            <tbody>
+
+                {% if items|length>0 %}
+
+                    {% for item in items %}
+                        <tr>
+                            <td class="dropdown">
+
+                                <a class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" href="#" title="More Actions"> 
+                                    <span class="glyphicon glyphicon glyphicon-cog"></span>&nbsp; <span class="caret"></span> 
+                                </a>
+
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        {% if not item.is_canceled %}
+                                            <a href="{{ generate_url('admin.transfers.transfers.reversetransfer', {'id':item.id}) }}" title="Reverse Withdrawal">Reverse Withdrawal</a>
+                                        {% else %}
+                                            Reversed (done only once)
+                                        {% endif %}
+                                    </li>
+                                    <li class="divider"></li>
+                                    <li class="dropdown-header">
+                                        Id : {{ item.id }}
+                                    </li>
+                                </ul>
+                            </td>
+                            <td>{{ item.origin_user_id_join }}</td>
+                            <td>{{ item.target_user_id_join }}</td>
+                            <td>{{ item.gateway_id_join }}</td>
+                            <td class="text-center">
+                                {% if item.paid_status %}
+                                    <label class="label label-success">Yes</label>
+                                {% else %}
+                                    <label class="label label-default">No</label>
+                                {% endif %}  
+                            </td>
+                            <td class="text-center">
+                                {% if item.is_canceled %}
+                                    <label class="label label-success">Yes</label>
+                                {% else %}
+                                    <label class="label label-default">No</label>
+                                {% endif %}  
+                            </td>
+                            <td>{{ item.date_created ? item.date_created|date('d M Y H:i:s') }}</td>
+                            <td align="right">{{ item.amount|number_format(2) }}</td>
+                        </tr>
+                    {% endfor %}
+                {% endif %}
+            </tbody>
+        </table>
+    </div>
+
+    <div class="clearfix"></div>
+
+    {% include "items.pagination.twig"%}
+
+    {% include "form.hidden.twig" %}
+
+    {{ forms.input('_token' ) }}
+
+</form>

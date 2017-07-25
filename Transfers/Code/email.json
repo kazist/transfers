@@ -1,0 +1,15 @@
+{
+    "layout": [{
+            "tracking_id": "1",
+            "unique_name": "transfers.transfers.fundtranfered",
+            "subject": "Fund Transfer Completed Successfully",
+            "short_body": "Fund Transfer Completed Successfully",
+            "body": "Hi {{ user.name }},<br><br>The Fund transfer to {{ target_user.name }}({{ target_user.email }}) was successful completed.<br><br>The Transfer Details are;<br><br><b>Transfer Id :<\/b> {{ transfer.id }}<br><b>Amount :<\/b> {{ transfer.amount }}<br><b>To :<\/b> {{ target_user.name }} ({{ target_user.email }}) <br><b>date :<\/b> {{ transfer.date_created }}<br><br>If Your are not the one who initiated the process, Kindly contact administrator for a reversal.<br><br>Thank You<br>"
+        }, {
+            "tracking_id": "2",
+            "unique_name": "transfers.transfers.fundreceived",
+            "subject": "{{ user.name }} has tranfered {{ transfer.amount }} to you account.",
+            "short_body": "{{ user.name }} has tranfered {{ transfer.amount }} to you account.",
+            "body": "Hi {{ target_user.name }},<br><br>{{ user.name }} has tranfer {{ transfer.amount }} to you account.<br><br>The Transfer Details are;<br><br><b>Transfer Id :<\/b> {{ transfer.id }}<br><b>Amount :<\/b> {{ transfer.amount }}<br><b>From :<\/b> {{ user.name }} ({{ user.email }}) <br><b>date :<\/b> {{ transfer.date_created }}<br><br>Thank You<br>"
+        }]
+}

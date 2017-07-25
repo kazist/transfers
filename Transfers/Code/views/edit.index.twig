@@ -1,0 +1,78 @@
+{% import "form.macro.twig" as forms %}
+
+
+{{ set_assets('applications/Transfers/assets/js/transfers.js') }}
+
+<h1> Transfer Fund</h1>
+<hr>
+
+<form id="{{ main_form_id }}" class="form-horizontal" action="{{ generate_url(''~ kazi_url.app_name ~'.'~ kazi_url.com_name ~'.'~ kazi_url.subset_name ~'.invoice') }}" method="post" role="form"  enctype="multipart/form-data">
+
+    <div>
+        <div class="col-md-9">
+            <div>
+                <label for="inviter" class="col-sm-3 control-label">Search User (name, email or Phone)</label>
+
+                <div class="col-sm-9 search-user-wrapper">
+                    {{ forms.input('search_user_id', 'text', null)  }}
+                    {{ forms.input('user_id', 'hidden')  }}
+                    <a class="btn btn-primary btn-flat btn-xs search-user">Search User</a>
+                    <div class="searched-user-holder">
+                    </div>
+                </div>
+            </div>
+
+            <div class="clearfix"></div>
+            <br>
+
+            {{ forms.input('amount', 'text', null, 'Amount')  }}
+
+            {% if gateways|length > 1 %}
+                {{ forms.input('gateway_id', 'radio', null, 'Gateway', null, null, null, null, gateways)  }}
+            {% else %}
+                {{ forms.input('gateway_id', 'hidden', gateways.0.value) }}
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="clearfix"></div>
+    {{ forms.input('id', 'hidden', subscriber.id, 'Id')  }}
+
+    <div class="text-center registration-buttons">
+        <input class="btn btn-success btn-sm" type="submit" name="submit" value="Transfer Fund" />
+        <a class="btn btn-danger btn-sm" href="{{ generate_url(''~ kazi_url.app_name ~'.'~ kazi_url.com_name ~'.'~ kazi_url.subset_name) }}">Cancel</a> 
+    </div>
+
+    {% include "form.hidden.twig" %}
+
+    {{ forms.input('_token' ) }} 
+
+</form>
+
+<style>
+
+
+    .inviter_detail_name{
+        font-weight: bold;
+    }
+
+    .location_id-group{
+        display: none;
+    }
+
+    .inviter_detail-group #date_arr{
+        width: 50px;
+        display: inline-block;
+    }
+    .inviter_detail-group #month_arr{
+        width: 100px;
+        display: inline-block;
+    }
+    .inviter_detail-group #year_arr{
+        width: 80px;
+        display: inline-block;
+    }
+</style>
+
+
+
