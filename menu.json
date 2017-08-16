@@ -1,0 +1,11 @@
+{
+    "parent": "payments",
+    "menulist": [{
+
+            "title": "Transfers",
+            "alias": "admin_transfers_transfers",
+            "url": "admin/transfers/transfers",
+            "icon": "fa fa-money",
+            "children": []
+        }]
+}

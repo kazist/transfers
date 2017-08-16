@@ -1,0 +1,51 @@
+
+{{ set_assets('applications/Transfers/Addons/Transfers/assets/css/transfers.css') }}
+{% set user = get_user() %}
+{% set kazi_url = get_context('kazi_url') %}
+
+{% if user.media_file != '' %}
+    {% set user_avatar = user.media_file %}
+{% else %}
+    {% set user_avatar = 'assets/images/transfers/transfers/avatar.png' %}
+{% endif %}
+
+<div class="user-avatar">
+
+    <img src="{{ resized_image(user_avatar) }}" class="img-circle" alt="{{ user.name }}" title="{{ user.name }}" align="left"  width="150px" />
+
+    <small>
+        <i class="fa fa-user"></i> {{ user.name }}<br>
+        <i class="fa fa-archive"></i> {{ user.username }}<br>
+        <i class="fa fa-envelope"></i> {{ user.email }}<br>
+        {% if user.country_id_join != '' %}
+            <i class="fa fa-map-marker"></i> {{ user.country_id_join }} {{ user.location_id_join }}<br>
+        {% endif %}
+        {% if user.phone != '' %}
+            <i class="fa fa-phone"></i> {{ user.phone }}<br>
+        {% endif %}
+        <div class="clearfix"></div>
+        Join On: {{ user.date_created|date('d M, Y') }}<br>
+        Last Login: {{ user.last_date_active|date('d M, Y H:i:s') }}<br>
+    </small>
+
+    <div class="clearfix"></div>
+
+    {% if show_inviter_link %}
+        <b>Inviter Link</b><br>
+        <div class="bg-gray">
+            {{ web_root }}invite/{{ user.username }}
+        </div>
+        <br>
+    {% endif %}  
+
+    <ul>
+        <li>
+            <a href="{{ generate_url(my_account_link) }}">My Account</a>
+        </li>
+        <li>
+            <a href="{{ generate_url('change_password_form') }}"> Change Password</a>
+        </li>
+    </ul>
+    <div class="clearfix"></div>
+    <br>
+</div>

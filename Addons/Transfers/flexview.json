@@ -1,0 +1,20 @@
+[
+    {
+        "title": "Transfer List",
+        "show_title": "1",
+        "unique_name": "transfers.addons.transfers",
+        "icon": "fa-user",
+        "homepage": "0",
+        "allpages": "0",
+        "extensionpages": "1",
+        "viewside": "backend",
+        "explanation": "",
+        "description": "",
+        "suffix_content": "",
+        "prefix_content": "",
+        "main_content": "",
+        "positions": ["top_left"],
+        "setting": []
+
+    }
+]

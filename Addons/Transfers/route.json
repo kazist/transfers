@@ -1,0 +1,22 @@
+{
+    "backend": [{
+            "title": "Transfers List",
+            "description": "Management of Transfers.",
+            "controller": "Transfers\\Addons\\Transfers\\Controllers\\TransfersController::indexAction",
+            "permissions": "can_view, can_viewown",
+            "unique_name": "transfers.addons.transfers",
+            "route": "transfers/addons/transfers",
+            "arguments": "",
+            "keywords": "latest, transfers, list, addons",
+            "priority": "0.5",
+            "changefreq": "weekly",
+            "login_required": 0,
+            "roles": {
+                "SUPER_ADMIN": ["can_view", "can_viewown"],
+                "ADMIN": ["can_view", "can_viewown"],
+                "MODERATOR": ["can_view", "can_viewown"],
+                "USER": ["can_view", "can_viewown"]
+            }
+        }]
+
+} 	

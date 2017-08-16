@@ -174,7 +174,7 @@ class TransfersModel extends BaseModel {
 
         $query = new Query();
         $query->select('fg.*');
-        $query->from('#__transfers_gateways', 'fg');
+        $query->from('#__payments_gateways', 'fg');
         $query->where('fg.can_transfer=1');
 
         $records = $query->loadObjectList();
@@ -294,7 +294,7 @@ class TransfersModel extends BaseModel {
 
         $query = new Query();
         $query->select('fg.*');
-        $query->from('#__transfers_gateways', 'fg');
+        $query->from('#__payments_gateways', 'fg');
         $query->where('fg.published=1');
         $records = $query->loadObjectList();
 

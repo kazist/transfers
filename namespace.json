@@ -1,0 +1,6 @@
+{
+    "TransfersTransfers": {
+        "namespace": "Transfers\\Transfers",
+        "controller": "TransfersController"
+    }
+}

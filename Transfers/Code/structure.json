@@ -249,7 +249,7 @@
                     "display_field": [
                         "long_name"
                     ],
-                    "join_table_name": "transfers_gateways"
+                    "join_table_name": "payments_gateways"
                 },
                 "save": {
                     "index": ""
@@ -588,7 +588,7 @@
             {
                 "table": "Transfers\\Gateways\\Code\\Tables\\Gateways",
                 "alias": "fg",
-                "name": "#__transfers_gateways",
+                "name": "#__payments_gateways",
                 "on": "ft.gateway_id = fg.id"
             },
             {

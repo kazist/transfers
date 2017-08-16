@@ -1,0 +1,10 @@
+{
+    "name": "transfers",
+    "title": "User Avatar Listing",
+    "explanation": "User Avatar Listing",
+    "description": "User Avatar Listing",
+    "version": 1,
+    "icon": "assets\/transfers\/addons\/transfers\/icon.png",
+    "extension": "addon",
+    "path": "transfers\/addons\/transfers\/"
+}
