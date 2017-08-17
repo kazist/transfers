@@ -2,5 +2,17 @@
     "TransfersTransfers": {
         "namespace": "Transfers\\Transfers",
         "controller": "TransfersController"
+    },
+    "TransfersTransfers": {
+        "namespace": "Transfers\\Transfers",
+        "controller": "TransfersController"
+    },
+    "TransfersTransfersAllowedin": {
+        "namespace": "Transfers\\Transfers\\Allowedin",
+        "controller": "AllowedinController"
+    },
+    "TransfersTransfersDisallowedin": {
+        "namespace": "Transfers\\Transfers\\Disallowedin",
+        "controller": "DisallowedinController"
     }
 }

@@ -237,7 +237,7 @@
     ],
     "primarykey": "id",
     "table_name": "transfers_transfers_allowedin",
-    "table_alias": "fta",
+    "table_alias": "tta",
     "foreignkey": "",
     "renamedfields": "",
     "main_fields": [
@@ -254,24 +254,24 @@
     "query": {
         "from": {
             "table": "Transfers\\Transfers\\Allowedin\\Code\\Tables\\Allowedin",
-            "alias": "fta",
+            "alias": "tta",
             "name": "#__transfers_transfers_allowedin"
         },
         "select": [
-            "fta.id",
-            "fta.country_id",
+            "tta.id",
+            "tta.country_id",
             "sc.name AS country_id_name",
-            "fta.created_by",
-            "fta.date_created",
-            "fta.modified_by",
-            "fta.date_modified"
+            "tta.created_by",
+            "tta.date_created",
+            "tta.modified_by",
+            "tta.date_modified"
         ],
         "leftjoin": [
             {
                 "table": "Setup\\Countries\\Code\\Tables\\Countries",
                 "alias": "sc",
                 "name": "#__setup_countries",
-                "on": "fta.country_id = sc.id"
+                "on": "tta.country_id = sc.id"
             }
         ]
     }
