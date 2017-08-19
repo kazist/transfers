@@ -6,7 +6,7 @@
 <h1> Transfer Fund</h1>
 <hr>
 
-<form id="{{ main_form_id }}" class="form-horizontal" action="{{ generate_url(''~ kazi_url.app_name ~'.'~ kazi_url.com_name ~'.'~ kazi_url.subset_name ~'.invoice') }}" method="post" role="form"  enctype="multipart/form-data">
+<form id="{{ main_form_id }}" class="form-horizontal" action="{{ generate_url('transfers.transfers.invoice') }}" method="post" role="form"  enctype="multipart/form-data">
 
     <div>
         <div class="col-md-9">
@@ -36,11 +36,11 @@
     </div>
 
     <div class="clearfix"></div>
-    {{ forms.input('id', 'hidden', subscriber.id, 'Id')  }}
+    {{ forms.input('id', 'hidden', payment_user.id, 'Id')  }}
 
     <div class="text-center registration-buttons">
         <input class="btn btn-success btn-sm" type="submit" name="submit" value="Transfer Fund" />
-        <a class="btn btn-danger btn-sm" href="{{ generate_url(''~ kazi_url.app_name ~'.'~ kazi_url.com_name ~'.'~ kazi_url.subset_name) }}">Cancel</a> 
+        <a class="btn btn-danger btn-sm" href="{{ generate_url('transfers.transfers') }}">Cancel</a> 
     </div>
 
     {% include "form.hidden.twig" %}
@@ -49,30 +49,6 @@
 
 </form>
 
-<style>
-
-
-    .inviter_detail_name{
-        font-weight: bold;
-    }
-
-    .location_id-group{
-        display: none;
-    }
-
-    .inviter_detail-group #date_arr{
-        width: 50px;
-        display: inline-block;
-    }
-    .inviter_detail-group #month_arr{
-        width: 100px;
-        display: inline-block;
-    }
-    .inviter_detail-group #year_arr{
-        width: 80px;
-        display: inline-block;
-    }
-</style>
 
 
 

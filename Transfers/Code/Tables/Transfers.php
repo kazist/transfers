@@ -11,8 +11,8 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Entity
  * @ORM\HasLifecycleCallbacks
  */
-class Transfers extends \Kazist\Table\BaseTable {
-
+class Transfers extends \Kazist\Table\BaseTable
+{
     /**
      * @var integer
      *
@@ -67,7 +67,7 @@ class Transfers extends \Kazist\Table\BaseTable {
     /**
      * @var string
      *
-     * @ORM\Column(name="description", type="text", nullable=false)
+     * @ORM\Column(name="description", type="text", nullable=true)
      */
     protected $description;
 
@@ -88,79 +88,87 @@ class Transfers extends \Kazist\Table\BaseTable {
     /**
      * @var integer
      *
-     * @ORM\Column(name="created_by", type="integer", length=11, nullable=false)
+     * @ORM\Column(name="created_by", type="integer", length=11, nullable=true)
      */
     protected $created_by;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="date_created", type="datetime", nullable=false)
+     * @ORM\Column(name="date_created", type="datetime", nullable=true)
      */
     protected $date_created;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="modified_by", type="integer", length=11, nullable=false)
+     * @ORM\Column(name="modified_by", type="integer", length=11, nullable=true)
      */
     protected $modified_by;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="date_modified", type="datetime", nullable=false)
+     * @ORM\Column(name="date_modified", type="datetime", nullable=true)
      */
     protected $date_modified;
+
 
     /**
      * Get id
      *
-     * @return integer 
+     * @return integer
      */
-    public function getId() {
+    public function getId()
+    {
         return $this->id;
     }
 
     /**
-     * Set origin_user_id
+     * Set originUserId
      *
      * @param integer $originUserId
+     *
      * @return Transfers
      */
-    public function setOriginUserId($originUserId) {
+    public function setOriginUserId($originUserId)
+    {
         $this->origin_user_id = $originUserId;
 
         return $this;
     }
 
     /**
-     * Get origin_user_id
+     * Get originUserId
      *
-     * @return integer 
+     * @return integer
      */
-    public function getOriginUserId() {
+    public function getOriginUserId()
+    {
         return $this->origin_user_id;
     }
 
     /**
-     * Set target_user_id
+     * Set targetUserId
      *
      * @param integer $targetUserId
+     *
      * @return Transfers
      */
-    public function setTargetUserId($targetUserId) {
+    public function setTargetUserId($targetUserId)
+    {
         $this->target_user_id = $targetUserId;
 
         return $this;
     }
 
     /**
-     * Get target_user_id
+     * Get targetUserId
      *
-     * @return integer 
+     * @return integer
      */
-    public function getTargetUserId() {
+    public function getTargetUserId()
+    {
         return $this->target_user_id;
     }
 
@@ -168,9 +176,11 @@ class Transfers extends \Kazist\Table\BaseTable {
      * Set amount
      *
      * @param integer $amount
+     *
      * @return Transfers
      */
-    public function setAmount($amount) {
+    public function setAmount($amount)
+    {
         $this->amount = $amount;
 
         return $this;
@@ -179,30 +189,34 @@ class Transfers extends \Kazist\Table\BaseTable {
     /**
      * Get amount
      *
-     * @return integer 
+     * @return integer
      */
-    public function getAmount() {
+    public function getAmount()
+    {
         return $this->amount;
     }
 
     /**
-     * Set gateway_id
+     * Set gatewayId
      *
      * @param integer $gatewayId
+     *
      * @return Transfers
      */
-    public function setGatewayId($gatewayId) {
+    public function setGatewayId($gatewayId)
+    {
         $this->gateway_id = $gatewayId;
 
         return $this;
     }
 
     /**
-     * Get gateway_id
+     * Get gatewayId
      *
-     * @return integer 
+     * @return integer
      */
-    public function getGatewayId() {
+    public function getGatewayId()
+    {
         return $this->gateway_id;
     }
 
@@ -210,9 +224,11 @@ class Transfers extends \Kazist\Table\BaseTable {
      * Set currency
      *
      * @param string $currency
+     *
      * @return Transfers
      */
-    public function setCurrency($currency) {
+    public function setCurrency($currency)
+    {
         $this->currency = $currency;
 
         return $this;
@@ -221,9 +237,10 @@ class Transfers extends \Kazist\Table\BaseTable {
     /**
      * Get currency
      *
-     * @return string 
+     * @return string
      */
-    public function getCurrency() {
+    public function getCurrency()
+    {
         return $this->currency;
     }
 
@@ -231,9 +248,11 @@ class Transfers extends \Kazist\Table\BaseTable {
      * Set token
      *
      * @param string $token
+     *
      * @return Transfers
      */
-    public function setToken($token) {
+    public function setToken($token)
+    {
         $this->token = $token;
 
         return $this;
@@ -242,9 +261,10 @@ class Transfers extends \Kazist\Table\BaseTable {
     /**
      * Get token
      *
-     * @return string 
+     * @return string
      */
-    public function getToken() {
+    public function getToken()
+    {
         return $this->token;
     }
 
@@ -252,9 +272,11 @@ class Transfers extends \Kazist\Table\BaseTable {
      * Set description
      *
      * @param string $description
+     *
      * @return Transfers
      */
-    public function setDescription($description) {
+    public function setDescription($description)
+    {
         $this->description = $description;
 
         return $this;
@@ -263,9 +285,10 @@ class Transfers extends \Kazist\Table\BaseTable {
     /**
      * Get description
      *
-     * @return string 
+     * @return string
      */
-    public function getDescription() {
+    public function getDescription()
+    {
         return $this->description;
     }
 
@@ -273,9 +296,11 @@ class Transfers extends \Kazist\Table\BaseTable {
      * Set params
      *
      * @param string $params
+     *
      * @return Transfers
      */
-    public function setParams($params) {
+    public function setParams($params)
+    {
         $this->params = $params;
 
         return $this;
@@ -284,67 +309,82 @@ class Transfers extends \Kazist\Table\BaseTable {
     /**
      * Get params
      *
-     * @return string 
+     * @return string
      */
-    public function getParams() {
+    public function getParams()
+    {
         return $this->params;
     }
 
     /**
-     * Set is_canceled
+     * Set isCanceled
      *
      * @param integer $isCanceled
+     *
      * @return Transfers
      */
-    public function setIsCanceled($isCanceled) {
+    public function setIsCanceled($isCanceled)
+    {
         $this->is_canceled = $isCanceled;
 
         return $this;
     }
 
     /**
-     * Get is_canceled
+     * Get isCanceled
      *
-     * @return integer 
+     * @return integer
      */
-    public function getIsCanceled() {
+    public function getIsCanceled()
+    {
         return $this->is_canceled;
     }
 
     /**
-     * Get created_by
+     * Get createdBy
      *
-     * @return integer 
+     * @return integer
      */
-    public function getCreatedBy() {
+    public function getCreatedBy()
+    {
         return $this->created_by;
     }
 
     /**
-     * Get date_created
+     * Get dateCreated
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
-    public function getDateCreated() {
+    public function getDateCreated()
+    {
         return $this->date_created;
     }
 
     /**
-     * Get modified_by
+     * Get modifiedBy
      *
-     * @return integer 
+     * @return integer
      */
-    public function getModifiedBy() {
+    public function getModifiedBy()
+    {
         return $this->modified_by;
     }
 
     /**
-     * Get date_modified
+     * Get dateModified
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
-    public function getDateModified() {
+    public function getDateModified()
+    {
         return $this->date_modified;
     }
-
+    /**
+     * @ORM\PreUpdate
+     */
+    public function onPreUpdate()
+    {
+        // Add your code here
+    }
 }
+

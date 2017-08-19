@@ -91,16 +91,13 @@
         }
     },
     "rights": {
-        "tab": [
-        ],
+        "tab": [],
         "group": [
             "modification_detail"
         ],
-        "field": [
-        ]
+        "field": []
     },
-    "customhtmls": [
-    ],
+    "customhtmls": [],
     "fields": [
         {
             "dropdown_filter": "0",
@@ -117,17 +114,13 @@
             "readonly": "",
             "format_value": "",
             "parameters": {
-                "general": [
-                ],
-                "source": [
-                ],
+                "general": [],
+                "source": [],
                 "save": {
                     "index": ""
                 },
-                "media": [
-                ],
-                "payment": [
-                ]
+                "media": [],
+                "payment": []
             }
         },
         {
@@ -145,8 +138,7 @@
             "readonly": "0",
             "format_value": "",
             "parameters": {
-                "general": [
-                ],
+                "general": [],
                 "source": {
                     "data_source": "db_table",
                     "join_field": "id",
@@ -158,10 +150,8 @@
                 "save": {
                     "index": ""
                 },
-                "media": [
-                ],
-                "payment": [
-                ]
+                "media": [],
+                "payment": []
             }
         },
         {
@@ -179,8 +169,7 @@
             "readonly": "0",
             "format_value": "",
             "parameters": {
-                "general": [
-                ],
+                "general": [],
                 "source": {
                     "data_source": "db_table",
                     "join_field": "id",
@@ -192,10 +181,8 @@
                 "save": {
                     "index": ""
                 },
-                "media": [
-                ],
-                "payment": [
-                ]
+                "media": [],
+                "payment": []
             }
         },
         {
@@ -213,17 +200,13 @@
             "readonly": "0",
             "format_value": "",
             "parameters": {
-                "general": [
-                ],
-                "source": [
-                ],
+                "general": [],
+                "source": [],
                 "save": {
                     "index": ""
                 },
-                "media": [
-                ],
-                "payment": [
-                ]
+                "media": [],
+                "payment": []
             }
         },
         {
@@ -241,8 +224,7 @@
             "readonly": "0",
             "format_value": "",
             "parameters": {
-                "general": [
-                ],
+                "general": [],
                 "source": {
                     "data_source": "db_table",
                     "join_field": "id",
@@ -254,10 +236,8 @@
                 "save": {
                     "index": ""
                 },
-                "media": [
-                ],
-                "payment": [
-                ]
+                "media": [],
+                "payment": []
             }
         },
         {
@@ -275,17 +255,13 @@
             "readonly": "0",
             "format_value": "",
             "parameters": {
-                "general": [
-                ],
-                "source": [
-                ],
+                "general": [],
+                "source": [],
                 "save": {
                     "index": ""
                 },
-                "media": [
-                ],
-                "payment": [
-                ]
+                "media": [],
+                "payment": []
             }
         },
         {
@@ -303,22 +279,18 @@
             "readonly": "0",
             "format_value": "",
             "parameters": {
-                "general": [
-                ],
-                "source": [
-                ],
+                "general": [],
+                "source": [],
                 "save": {
                     "index": ""
                 },
-                "media": [
-                ],
-                "payment": [
-                ]
+                "media": [],
+                "payment": []
             }
         },
         {
             "dropdown_filter": "0",
-            "nullable": "0",
+            "nullable": "1",
             "name": "description",
             "html_type": "textarea",
             "mysql_type": "text",
@@ -335,15 +307,12 @@
                     "col": "",
                     "row": ""
                 },
-                "source": [
-                ],
+                "source": [],
                 "save": {
                     "index": ""
                 },
-                "media": [
-                ],
-                "payment": [
-                ]
+                "media": [],
+                "payment": []
             }
         },
         {
@@ -361,17 +330,13 @@
             "readonly": "0",
             "format_value": "",
             "parameters": {
-                "general": [
-                ],
-                "source": [
-                ],
+                "general": [],
+                "source": [],
                 "save": {
                     "index": ""
                 },
-                "media": [
-                ],
-                "payment": [
-                ]
+                "media": [],
+                "payment": []
             }
         },
         {
@@ -389,22 +354,18 @@
             "readonly": "0",
             "format_value": "",
             "parameters": {
-                "general": [
-                ],
-                "source": [
-                ],
+                "general": [],
+                "source": [],
                 "save": {
                     "index": ""
                 },
-                "media": [
-                ],
-                "payment": [
-                ]
+                "media": [],
+                "payment": []
             }
         },
         {
             "dropdown_filter": "0",
-            "nullable": "0",
+            "nullable": "1",
             "name": "created_by",
             "html_type": "autocomplete",
             "mysql_type": "int",
@@ -417,8 +378,7 @@
             "readonly": "0",
             "format_value": "",
             "parameters": {
-                "general": [
-                ],
+                "general": [],
                 "source": {
                     "data_source": "db_table",
                     "join_field": "id",
@@ -430,15 +390,13 @@
                 "save": {
                     "index": ""
                 },
-                "media": [
-                ],
-                "payment": [
-                ]
+                "media": [],
+                "payment": []
             }
         },
         {
             "dropdown_filter": "0",
-            "nullable": "0",
+            "nullable": "1",
             "name": "date_created",
             "html_type": "text",
             "mysql_type": "datetime",
@@ -451,22 +409,18 @@
             "readonly": "",
             "format_value": "",
             "parameters": {
-                "general": [
-                ],
-                "source": [
-                ],
+                "general": [],
+                "source": [],
                 "save": {
                     "index": ""
                 },
-                "media": [
-                ],
-                "payment": [
-                ]
+                "media": [],
+                "payment": []
             }
         },
         {
             "dropdown_filter": "0",
-            "nullable": "0",
+            "nullable": "1",
             "name": "modified_by",
             "html_type": "autocomplete",
             "mysql_type": "int",
@@ -479,8 +433,7 @@
             "readonly": "0",
             "format_value": "",
             "parameters": {
-                "general": [
-                ],
+                "general": [],
                 "source": {
                     "data_source": "db_table",
                     "join_field": "id",
@@ -492,15 +445,13 @@
                 "save": {
                     "index": ""
                 },
-                "media": [
-                ],
-                "payment": [
-                ]
+                "media": [],
+                "payment": []
             }
         },
         {
             "dropdown_filter": "0",
-            "nullable": "0",
+            "nullable": "1",
             "name": "date_modified",
             "html_type": "text",
             "mysql_type": "datetime",
@@ -513,23 +464,19 @@
             "readonly": "",
             "format_value": "",
             "parameters": {
-                "general": [
-                ],
-                "source": [
-                ],
+                "general": [],
+                "source": [],
                 "save": {
                     "index": ""
                 },
-                "media": [
-                ],
-                "payment": [
-                ]
+                "media": [],
+                "payment": []
             }
         }
     ],
     "primarykey": "id",
     "table_name": "transfers_transfers",
-    "table_alias": "ft",
+    "table_alias": "tt",
     "foreignkey": "",
     "renamedfields": "",
     "main_fields": [
@@ -548,60 +495,60 @@
     "query": {
         "from": {
             "table": "Transfers\\Transfers\\Code\\Tables\\Transfers",
-            "alias": "ft",
+            "alias": "tt",
             "name": "#__transfers_transfers"
         },
         "select": [
-            "ft.id",
-            "ft.origin_user_id",
+            "tt.id",
+            "tt.origin_user_id",
             "uu.name AS origin_user_id_name",
-            "ft.target_user_id",
-            "uu_2751.name AS target_user_id_name",
-            "ft.amount",
-            "ft.gateway_id",
-            "fg.long_name AS gateway_id_long_name",
-            "ft.currency",
-            "ft.token",
-            "ft.description",
-            "ft.params",
-            "ft.is_canceled",
-            "ft.created_by",
-            "uu_8937.name AS created_by_name",
-            "ft.date_created",
-            "ft.modified_by",
-            "uu_5774.name AS modified_by_name",
-            "ft.date_modified"
+            "tt.target_user_id",
+            "uu_478.name AS target_user_id_name",
+            "tt.amount",
+            "tt.gateway_id",
+            "pg.long_name AS gateway_id_long_name",
+            "tt.currency",
+            "tt.token",
+            "tt.description",
+            "tt.params",
+            "tt.is_canceled",
+            "tt.created_by",
+            "uu_9933.name AS created_by_name",
+            "tt.date_created",
+            "tt.modified_by",
+            "uu_9313.name AS modified_by_name",
+            "tt.date_modified"
         ],
         "leftjoin": [
             {
                 "table": "Users\\Users\\Code\\Tables\\Users",
                 "alias": "uu",
                 "name": "#__users_users",
-                "on": "ft.origin_user_id = uu.id"
+                "on": "tt.origin_user_id = uu.id"
             },
             {
                 "table": "Users\\Users\\Code\\Tables\\Users",
-                "alias": "uu_2751",
+                "alias": "uu_478",
                 "name": "#__users_users",
-                "on": "ft.target_user_id = uu_2751.id"
+                "on": "tt.target_user_id = uu_478.id"
             },
             {
-                "table": "Transfers\\Gateways\\Code\\Tables\\Gateways",
-                "alias": "fg",
+                "table": "Payments\\Gateways\\Code\\Tables\\Gateways",
+                "alias": "pg",
                 "name": "#__payments_gateways",
-                "on": "ft.gateway_id = fg.id"
+                "on": "tt.gateway_id = pg.id"
             },
             {
                 "table": "Users\\Users\\Code\\Tables\\Users",
-                "alias": "uu_8937",
+                "alias": "uu_9933",
                 "name": "#__users_users",
-                "on": "ft.created_by = uu_8937.id"
+                "on": "tt.created_by = uu_9933.id"
             },
             {
                 "table": "Users\\Users\\Code\\Tables\\Users",
-                "alias": "uu_5774",
+                "alias": "uu_9313",
                 "name": "#__users_users",
-                "on": "ft.modified_by = uu_5774.id"
+                "on": "tt.modified_by = uu_9313.id"
             }
         ]
     }

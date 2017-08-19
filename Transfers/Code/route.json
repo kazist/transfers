@@ -36,26 +36,6 @@
                 "USER": ["can_add"]
             }
         }, {
-            "title": "Edit Transfer {{ item.name }}",
-            "description": "Edit Transfer {{ item.name }}.",
-            "controller": "Transfers\\Transfers\\Code\\Controllers\\TransfersController::editAction",
-            "unique_name": "transfers.transfers.edit",
-            "route": "transfers/transfers/edit/{id}",
-            "permissions": "can_add, can_write, can_writeown",
-            "arguments": {
-                "id": null
-            },
-            "keywords": "transfer, list, {{ item.name }}",
-            "priority": "0.5",
-            "changefreq": "weekly",
-            "login_required": 1,
-            "roles": {
-                "SUPER_ADMIN": ["can_add", "can_write", "can_writeown"],
-                "ADMIN": ["can_add", "can_write", "can_writeown"],
-                "MODERATOR": ["can_add"],
-                "USER": ["can_add"]
-            }
-        }, {
             "title": "Transfer Detail: {{ item.name }}",
             "description": "Transfer Detail: {{ item.name }}",
             "controller": "Transfers\\Transfers\\Code\\Controllers\\TransfersController::detailAction",
@@ -74,26 +54,6 @@
                 "ADMIN": ["can_view", "can_viewown"],
                 "MODERATOR": ["can_viewown"],
                 "USER": ["can_viewown"]
-            }
-        }, {
-            "title": "Transfer Delete: {{ item.name }}",
-            "description": "Transfer Delete: {{ item.name }}",
-            "controller": "Transfers\\Transfers\\Code\\Controllers\\TransfersController::deleteAction",
-            "unique_name": "transfers.transfers.delete",
-            "route": "transfers/transfers/delete/{id}",
-            "permissions": "can_delete, can_deleteown",
-            "arguments": {
-                "id": null
-            },
-            "keywords": "transfer, delete, {{ item.name }}",
-            "priority": "0.5",
-            "changefreq": "weekly",
-            "login_required": 1,
-            "roles": {
-                "SUPER_ADMIN": ["can_delete", "can_deleteown"],
-                "ADMIN": ["can_delete", "can_deleteown"],
-                "MODERATOR": ["can_deleteown"],
-                "USER": ["can_deleteown"]
             }
         }, {
             "title": "Transfer Save: {{ item.name }}",

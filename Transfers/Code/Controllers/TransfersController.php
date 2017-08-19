@@ -29,18 +29,25 @@ class TransfersController extends BaseController {
         return parent::indexAction($offset, $limit);
     }
 
+    public function saveAction($form_data = '') {
+        
+        $this->return_url = 'transfers.transfers';
+        
+        return parent::saveAction($form_data);
+    }
+
     public function invoiceAction() {
 
         $this->model = new TransfersModel();
 
         $rates = $this->model->getInvoice();
         $form = $this->model->getForm();
-        $subscriber = $this->model->getSubscriber();
+        $payment_user = $this->model->getSubscriber();
 
         $data_arr['rates'] = $rates;
         $data_arr['rates_json'] = json_encode($rates);
         $data_arr['form'] = $form;
-        $data_arr['subscriber'] = $subscriber;
+        $data_arr['payment_user'] = $payment_user;
 
         $this->html = $this->render('Transfers:Transfers:Code:views:invoice.index.twig', $data_arr);
 
@@ -49,23 +56,17 @@ class TransfersController extends BaseController {
         return $response;
     }
 
-    public function editAction() {
+    public function editAction($id) {
 
         $this->model = new TransfersModel();
 
         $item = $this->model->getRecord();
         $gateways = $this->model->getTransferGateways();
 
-        $data_arr['item'] = $item;
-        $data_arr['gateways'] = $gateways;
+        $this->data_arr['item'] = $item;
+        $this->data_arr['gateways'] = $gateways;
 
-        $this->html = $this->render('Transfers:Transfers:Code:views:edit.index.twig', $data_arr);
-
-        $response = $this->response($this->html);
-
-
-
-        return $response;
+        return parent::editAction($id);
     }
 
 }

@@ -39,7 +39,7 @@ Transfers\Transfers\Code\Tables\Transfers:
     description:
       name: description
       type: text
-      nullable: false
+      nullable: true
     params:
       name: params
       type: text
@@ -53,20 +53,20 @@ Transfers\Transfers\Code\Tables\Transfers:
       name: created_by
       type: integer
       length: 11
-      nullable: false
+      nullable: true
     date_created:
       name: date_created
       type: datetime
-      nullable: false
+      nullable: true
     modified_by:
       name: modified_by
       type: integer
       length: 11
-      nullable: false
+      nullable: true
     date_modified:
       name: date_modified
       type: datetime
-      nullable: false
+      nullable: true
   indexes:
     origin_user_id_index:
       columns: [origin_user_id]

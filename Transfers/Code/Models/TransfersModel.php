@@ -10,12 +10,11 @@ namespace Transfers\Transfers\Code\Models;
 
 defined('KAZIST') or exit('Not Kazist Framework');
 
-use Kazist\Model\BaseModel;
 use Kazist\KazistFactory;
-use Transfers\Payments\Code\Models\PaymentModel;
-use Subscriptions\Subscriptions\Code\Classes\Subscriber;
+use Kazist\Model\BaseModel;
 use Kazist\Service\Email\Email;
-use Transfers\Transactions\Code\Models\TransactionsModel;
+use Payments\Payments\Code\Models\PaymentsModel;
+use Payments\Transactions\Code\Models\TransactionsModel;
 use Kazist\Service\Database\Query;
 
 /**
@@ -39,17 +38,24 @@ class TransfersModel extends BaseModel {
             $user_id = $user->id;
         }
 
-        $query = parent::getQueryBuilder('#__transfers_transfers', 'ft');
+        $query = parent::getQueryBuilder('#__transfers_transfers', 'tt');
 
 
         if ($user_id) {
-            $query->where('ft.origin_user_id=' . $user_id);
+            $query->where('tt.origin_user_id=' . $user_id);
         }
         return $query;
     }
 
+    public function getSubscriber($form) {
+        $paymentsModel = new PaymentsModel();
+        $payment_user = $paymentsModel->getUser();
+        return $payment_user;
+    }
+
     public function save($form) {
 
+        $paymentsModel = new PaymentsModel();
         $factory = new KazistFactory();
         $user = $factory->getUser();
 
@@ -67,8 +73,8 @@ class TransfersModel extends BaseModel {
             unset($form['user_id']);
         }
 
-        $subscriber = $this->getSubscriber($form['origin_user_id']);
-        $total_amount = $subscriber->money_in - $subscriber->money_out;
+        $payment_user = $paymentsModel->getUser($form['origin_user_id']);
+        $total_amount = $payment_user->money_in - $payment_user->money_out;
 
         $params = $this->getInvoice();
         $params = array_reverse($params);
@@ -77,7 +83,7 @@ class TransfersModel extends BaseModel {
 
         if ($total_param->amount > $total_amount) {
             $factory->enqueueMessage('Amount to be transfered (' . $total_param->amount . ') is more than Available Amount (' . $total_amount . ')');
-            $factory->redirect('transfers.transfer.transfer');
+            $factory->redirect('transfers.transfers');
         }
 
         $transfer_id = parent::save($form);
@@ -112,7 +118,7 @@ class TransfersModel extends BaseModel {
                 $data_obj->debit = $param->amount;
                 $data_obj->type = 'fund-transfer';
 
-                $id = $factory->saveRecord('#__transfers_transactions', $data_obj);
+                $id = $factory->saveRecord('#__payments_transactions', $data_obj);
 
                 if (!$key) {
                     $parent_id = $id;
@@ -129,7 +135,7 @@ class TransfersModel extends BaseModel {
         $data_obj->credit = $amount;
         $data_obj->type = 'fund-transfer';
 
-        $factory->saveRecord('#__transfers_transactions', $data_obj);
+        $factory->saveRecord('#__payments_transactions', $data_obj);
     }
 
     public function sendEmail($origin_user_id, $target_user_id, $transfer_id) {
@@ -152,8 +158,8 @@ class TransfersModel extends BaseModel {
 
 
         $query = new Query();
-        $query->select('fgn.*');
-        $query->from('#__transfers_transfers_allowedin', 'fgn');
+        $query->select('tta.*');
+        $query->from('#__transfers_transfers_allowedin', 'tta');
 
         $records = $query->loadObjectList();
 
@@ -173,9 +179,9 @@ class TransfersModel extends BaseModel {
 
 
         $query = new Query();
-        $query->select('fg.*');
-        $query->from('#__payments_gateways', 'fg');
-        $query->where('fg.can_transfer=1');
+        $query->select('pg.*');
+        $query->from('#__payments_gateways', 'pg');
+        $query->where('pg.can_transfer=1');
 
         $records = $query->loadObjectList();
 
@@ -185,7 +191,7 @@ class TransfersModel extends BaseModel {
             }
         } else {
             $factory->enqueueMessage('No Tranfer Gateway Set. Kindly Contact Admin.', 'error');
-            $factory->redirect('transfers.transfer.transfer');
+            $factory->redirect('transfers.transfers');
         }
 
         return $tmp_array;
@@ -201,7 +207,7 @@ class TransfersModel extends BaseModel {
 
         $form = $this->request->request->get('form', null, null);
 
-        $paymentModel = new PaymentModel();
+        $paymentModel = new PaymentsModel();
         $rates = $paymentModel->getPaymentGatewayInvoiceRates($form['amount'], $form['gateway_id'], 'transfer');
 
         return $rates;
@@ -215,26 +221,6 @@ class TransfersModel extends BaseModel {
         $form = $this->request->request->get('form', null, null);
 
         return $form;
-    }
-
-    public function getSubscriber($user_id = '') {
-
-        $tmp_array = array();
-
-        $factory = new KazistFactory();
-
-
-        $user = $factory->getUser();
-
-        $form = $this->request->request->get('form', null, null);
-
-        if (!$user_id) {
-            $user_id = (!WEB_IS_ADMIN) ? $user->id : $this->request->request->get('user_id');
-        }
-        $subscriber = new Subscriber();
-        $subscriber_obj = $subscriber->getSubscriber($user_id, true, false);
-
-        return $subscriber_obj;
     }
 
     //xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx  reverseTransfer
@@ -293,9 +279,9 @@ class TransfersModel extends BaseModel {
         $tmp_array = array();
 
         $query = new Query();
-        $query->select('fg.*');
-        $query->from('#__payments_gateways', 'fg');
-        $query->where('fg.published=1');
+        $query->select('pg.*');
+        $query->from('#__payments_gateways', 'pg');
+        $query->where('pg.published=1');
         $records = $query->loadObjectList();
 
         if (!empty($records)) {

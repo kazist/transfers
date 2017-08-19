@@ -4,12 +4,12 @@
 {{ set_assets('applications/Transfers/assets/js/transfers.js') }}
 
 {% set transfer_amount = 0 %}
-{% set available_amount = subscriber.money_in - subscriber.money_out %}
+{% set available_amount = payment_user.money_in - payment_user.money_out %}
 
 <h1> Transfer Fund</h1>
 <hr>
 
-<form id="{{ main_form_id }}" class="form-horizontal" action="{{ generate_url(''~ kazi_url.app_name ~'.'~ kazi_url.com_name ~'.'~ kazi_url.subset_name ~'.save' ) }}" method="post" role="form"  enctype="multipart/form-data">
+<form id="{{ main_form_id }}" class="form-horizontal" action="{{ generate_url('transfers.transfers.save' ) }}" method="post" role="form"  enctype="multipart/form-data">
 
     <div>
         <div class="table-responsive">
@@ -59,7 +59,7 @@
 
         <div class="text-center registration-buttons">
             <input class="btn btn-success btn-sm" type="submit" name="submit" value="Transfer Fund" />
-            <a class="btn btn-danger btn-sm" href="{{ generate_url(''~ kazi_url.app_name ~'.'~ kazi_url.com_name ~'.'~ kazi_url.subset_name) }}">Cancel</a> 
+            <a class="btn btn-danger btn-sm" href="{{ generate_url('transfers.transfers') }}">Cancel</a> 
         </div>
 
     {% else %}
