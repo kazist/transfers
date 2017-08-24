@@ -6,7 +6,7 @@
 {% set transfer_amount = 0 %}
 {% set available_amount = payment_user.money_in - payment_user.money_out %}
 
-<h1> Transfer Fund</h1>
+<h1 class="component-header"> Transfer Fund</h1>
 <hr>
 
 <form id="{{ main_form_id }}" class="form-horizontal" action="{{ generate_url('transfers.transfers.save' ) }}" method="post" role="form"  enctype="multipart/form-data">
