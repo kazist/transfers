@@ -1,0 +1,10 @@
+
+[{
+        "_table_name": "payments_sources",
+        "system_tracking_id": "4",
+        "title": "Transfers",
+        "source": "transfers.transfers",
+        "published": "1"
+    }]
+
+

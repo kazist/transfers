@@ -114,7 +114,7 @@ class TransfersModel extends BaseModel {
                 $data_obj->description = ($key) ? $param->title . ' For ' . $parent_id : 'Fund Transfer To ' . $target_user->username;
                 $data_obj->item_id = $transfer_id;
                 $data_obj->rate_id = $param->id;
-                $data_obj->source = 'transfer';
+                $data_obj->payment_source = 'transfers.transfers';
                 $data_obj->debit = $param->amount;
                 $data_obj->type = 'fund-transfer';
 
@@ -131,7 +131,7 @@ class TransfersModel extends BaseModel {
         $data_obj->behalf_user_id = $origin_user_id;
         $data_obj->description = 'Fund Transfer From ' . $target_user->username;
         $data_obj->item_id = $transfer_id;
-        $data_obj->source = 'transfer';
+        $data_obj->payment_source = 'transfers.transfers';
         $data_obj->credit = $amount;
         $data_obj->type = 'fund-transfer';
 
