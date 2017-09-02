@@ -6,6 +6,7 @@
 <h1 class="component-header"> Transfer Fund</h1>
 <hr>
 
+
 <form id="{{ main_form_id }}" class="form-horizontal" action="{{ generate_url('transfers.transfers.invoice') }}" method="post" role="form"  enctype="multipart/form-data">
 
     <div>
@@ -30,7 +31,7 @@
             {% if gateways|length > 1 %}
                 {{ forms.input('gateway_id', 'radio', null, 'Gateway', null, null, null, null, gateways)  }}
             {% else %}
-                {{ forms.input('gateway_id', 'hidden', gateways.0.value) }}
+                {{ forms.input('gateway_id', 'hidden', gateway_id) }}
             {% endif %}
         </div>
     </div>

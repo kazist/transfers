@@ -1,9 +1,5 @@
 {# empty Twig template #}
 
-{% if view_side == 'frontend' %}
-    <h1 class="component-header"> Transfer </h1>
-{% endif %}
-
 <form id="{{ main_form_id }}" action="{{ generate_url('transfers.transfers') }}" method="post" >
     <div class="table-responsive">
         <table class="table table-condensed table-bordered">
@@ -45,9 +41,9 @@
                                     </li>
                                 </ul>
                             </td>
-                            <td>{{ item.origin_user_id_join }}</td>
-                            <td>{{ item.target_user_id_join }}</td>
-                            <td>{{ item.gateway_id_join }}</td>
+                            <td>{{ item.origin_user_id_name }}</td>
+                            <td>{{ item.target_user_id_name }}</td>
+                            <td>{{ item.gateway_id_long_name }}</td>
                             <td class="text-center">
                                 {% if item.paid_status %}
                                     <label class="label label-success">Yes</label>

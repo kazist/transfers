@@ -47,6 +47,12 @@ class TransfersModel extends BaseModel {
         return $query;
     }
 
+    public function getUser($user_id) {
+        $paymentsModel = new PaymentsModel();
+        $user = $paymentsModel->getUser($user_id);
+        return $user;
+    }
+
     public function getSubscriber($form) {
         $paymentsModel = new PaymentsModel();
         $payment_user = $paymentsModel->getUser();
@@ -152,7 +158,20 @@ class TransfersModel extends BaseModel {
         $email->sendDefinedLayoutEmail('transfers.transfers.fundreceived', $tmp_array['target_user']->email, $tmp_array);
     }
 
+    public function getGateway($gateway_id) {
+   
+        $query = new Query();
+        $query->select('pg.*');
+        $query->from('#__payments_gateways', 'pg');
+        $query->andWhere('pg.id=:id');
+        $query->setParameter('id', $gateway_id);
+        $record = $query->loadObject();
+        
+        return $record;
+    }
+
     public function getAllowedIn() {
+
         $tmp_array = array();
         $factory = new KazistFactory();
 
@@ -202,8 +221,6 @@ class TransfersModel extends BaseModel {
         $tmp_array = array();
 
         $factory = new KazistFactory();
-
-
 
         $form = $this->request->request->get('form', null, null);
 
