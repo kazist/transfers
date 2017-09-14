@@ -24,8 +24,8 @@
             <i class="fa fa-phone"></i> {{ user.phone }}<br>
         {% endif %}
         <div class="clearfix"></div>
-        Join On: {{ user.date_created|date('d M, Y') }}<br>
-        Last Login: {{ user.last_date_active|date('d M, Y H:i:s') }}<br>
+        Join On: {{ user.date_created|date('d M, Y',  document.timezone) }}<br>
+        Last Login: {{ user.last_date_active|date('d M, Y H:i:s',  document.timezone) }}<br>
     </small>
 
     <div class="clearfix"></div>

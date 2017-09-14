@@ -21,7 +21,7 @@
                     {% for item in items %}
                         <tr >
                             <td>{{ item.target_user_id_name }}</td>
-                            <td>{{ item.date_created ? item.date_created|date('d M Y H:i:s') }}</td>
+                            <td>{{ item.date_created ? item.date_created|date('d M Y H:i:s',  document.timezone) }}</td>
                             <td align="right">{{ item.amount|number_format(2) }}</td>
                         </tr>
                     {% endfor %}
