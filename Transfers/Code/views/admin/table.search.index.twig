@@ -16,8 +16,12 @@
         </div>
         <div class="col-sm-4">
             <b>Date Range</b><br>
-            {{ forms.input(' search.date_created.start', 'datetime', search.date_created.start ) }}
-            {{ forms.input(' search.date_created.end', 'datetime', search.date_created.end ) }}
+            <div class="date_created_start_wrapper">
+                {{ forms.input(' search.date_created.start', 'datetime', search.date_created.start ) }}
+            </div>
+            <div class="date_created_end_wrapper">
+                {{ forms.input(' search.date_created.end', 'datetime', search.date_created.end ) }}
+            </div>
         </div>
         <div class="col-sm-3">
             <b></b><br>
@@ -40,12 +44,12 @@
         padding:0 2px;
     }
 
-    .search_date_created_start_group{
+    .date_created_start_wrapper{
         width: 45% !important;
         float: left;
     }
 
-    .search_date_created_end_group{
+    .date_created_end_wrapper{
         width: 45% !important;
         float: right;
     }
