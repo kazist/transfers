@@ -106,8 +106,8 @@ class TransfersModel extends BaseModel {
         $factory = new KazistFactory();
 
         $parent_id = '';
-        $origin_user = $factory->getQueryBuilder('#__users_users', 'uu', array('id=:id'), array('id' => $origin_user_id));
-        $target_user = $factory->getQueryBuilder('#__users_users', 'uu', array('id=:id'), array('id' => $target_user_id));
+        $origin_user = $factory->getRecord('#__users_users', 'uu', array('id=:id'), array('id' => $origin_user_id));
+        $target_user = $factory->getRecord('#__users_users', 'uu', array('id=:id'), array('id' => $target_user_id));
 
         $params = array_reverse($params);
 
@@ -150,8 +150,8 @@ class TransfersModel extends BaseModel {
         $email = new Email();
         $factory = new KazistFactory();
 
-        $tmp_array['user'] = $factory->getQueryBuilder('#__users_users', 'uu', array('id=:id'), array('id' => $origin_user_id));
-        $tmp_array['target_user'] = $factory->getQueryBuilder('#__users_users', 'uu', array('id=:id'), array('id' => $target_user_id));
+        $tmp_array['user'] = $factory->getRecord('#__users_users', 'uu', array('id=:id'), array('id' => $origin_user_id));
+        $tmp_array['target_user'] = $factory->getRecord('#__users_users', 'uu', array('id=:id'), array('id' => $target_user_id));
         $tmp_array['transfer'] = $factory->getRecord('#__transfers_transfers', 'ft', array('id=:id'), array('id' => $transfer_id));
 
         $email->sendDefinedLayoutEmail('transfers.transfers.fundtranfered', $tmp_array['user']->email, $tmp_array);
