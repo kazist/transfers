@@ -40,10 +40,11 @@ class TransfersModel extends BaseModel {
 
         $query = parent::getQueryBuilder('#__transfers_transfers', 'tt');
 
-
         if ($user_id) {
-            $query->where('tt.origin_user_id=' . $user_id);
+            $query->where('tt.origin_user_id=:user_id');
+            $query->setParameter('user_id', (int) $user_id);
         }
+        
         return $query;
     }
 
@@ -159,14 +160,14 @@ class TransfersModel extends BaseModel {
     }
 
     public function getGateway($gateway_id) {
-   
+
         $query = new Query();
         $query->select('pg.*');
         $query->from('#__payments_gateways', 'pg');
         $query->andWhere('pg.id=:id');
         $query->setParameter('id', $gateway_id);
         $record = $query->loadObject();
-        
+
         return $record;
     }
 
